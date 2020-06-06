@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-CLHFNDJSKY"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-CLHFNDJSKY');
+	</script>
+	
+	<script src="https://www.gstatic.com/firebasejs/ui/4.5.1/firebase-ui-auth__es.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.1/firebase-ui-auth.css" />
+	
+	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mercado San Carlos | Compra y Venta de productos</title>
+	
+	<link rel="icon" href="assets/images/favicon.ico" /> 
+	
+	<link rel="stylesheet" href="https://d1zq6pyjrqicyj.cloudfront.net/bnNJetTfdHsQ/YMaJJLGezWbs/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/new-styles.css">
+</head>
+<body>
+	<h1 id="version-movil-only">Por favor accede desde tu celular o tablet, versión de ordenador aún no disponible. Vuelve pronto!</h1>
+	<div id="message-container"></div>
+
+	
+	<!-------------------------------------------------------------------------------------------------------------------
+													WELCOME VIEW
+	-------------------------------------------------------------------------------------------------------------------->
+	<div id="welcome-view">
+		<img id="mercado-logo" src="assets/images/white-logo.png" alt="Mercado + San Carlos"/>
+		<h1>Gracias por confiar en Mercado San Carlos!</h1>
+			<iframe id="welcome-video" src="https://www.youtube.com/embed/RAANBcUvEhA"
+			frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" 
+			allowfullscreen></iframe>
+		<button class="btn btn-round" id="welcome-button">Vamos!</button>
+		
+		<small>Si tienes alguna pregunta o inquietud envia un mensaje a <a href="https://wa.me/573216328834">3216328834 (movil Diego Cardona)</a></small>
+	</div>
+	
+	
+	<!-------------------------------------------------------------------------------------------------------------------
+													AUTH VIEW
+	-------------------------------------------------------------------------------------------------------------------->
+	<div id="auth-view">
+		<h1>Primero necesitarás una cuenta.</h1>
+		
+		<div id="auth-view-buttons">
+			<button id="google-auth" class="btn btn-round btn-block">Acceder con Google</button>
+			<!--<button id="phone-auth" class="btn btn-round btn-block">Usando mi número * Ya disponible!</button>-->
+			<div id="phone-auth-container">
+				<h2>Usando mi número</h2>
+				<input id="user-phone-input" type="number" placeholder="Ingresa tu número de celular: 3216328834">
+				<input id="user-code-input" type="number" placeholder="Ingresa el código aquí: 123456" />
+				<button id="phone-auth" class="btn btn-block">Enviar código de verificación</button>
+				* Si ocurre algún error por favor recarga la página
+				<div id="recaptcha-container"></div>
+			</div>
+			
+			
+			<a id="later-auth">Lo haré luego</a>
+			<small>* No podrás vender.</small>
+		</div>
+		
+		<p>Al registrarte aceptas los <a href="terminos-y-condiciones.html">Términos y condiciones de uso.</a></p>
+	</div>
+
+	
+	
+	<!-------------------------------------------------------------------------------------------------------------------
+													MAIN VIEW
+	-------------------------------------------------------------------------------------------------------------------->
+	<div id="main-view">
+		<header>
+			<a href="index.html"><img id="mercado-logo" src="assets/images/white-logo.png" alt="Mercado + San Carlos"/></a>
+		</header>
+		
+		
+		<!----------------------------------	MAIN SECTION	----------------------------------->
+		<main id="main-section">
+		</main>
+		
+		
+		<!----------------------------------	BUSQUEDA SECTION	----------------------------------->
+		<div id="busqueda-section" class="">
+			<div id="busqueda-input-container">
+				<input type="text" disabled value="Próximamente en la v2.0A">
+				<div id="busqueda-button"><svg class="bi bi-search" width="1.2rem" height="1.2rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"/>
+					<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"/>
+				</svg></div>
+			</div>
+			
+			<div id="busqueda-categorias-container">
+				<h2>Categorías</h2>
+				
+				<div id="busqueda-categorias">
+					<div class="categoriasCarousel">
+						<div class="categoriaContainer">
+							<img src="assets/images/categorias-icons/alimentos.svg" width="40px"/>
+							<p>Alimentos</p>
+						</div>
+							
+						<div class="categoriaContainer">
+							<img src="assets/images/categorias-icons/cuidado.svg" width="40px"/>
+							<p>Cuidado personal</p>
+						</div>
+							
+						<div class="categoriaContainer">
+							<img src="assets/images/categorias-icons/automotriz.svg" width="40px"/>
+							<p>Automotriz</p>
+						</div>
+							
+						<div class="categoriaContainer">
+							<img src="assets/images/categorias-icons/hogar.svg" width="40px"/>
+							<p>Productos del hogar</p>
+						</div>
+							
+						<div class="categoriaContainer">
+							<img src="assets/images/categorias-icons/mascotas.svg" width="40px"/>
+							<p>Mascotas</p>
+						</div>
+					</div>
+						
+					<div class="categoriasCarousel">
+						<div class="categoriaContainer">
+							<img src="assets/images/categorias-icons/electronicos.svg" width="40px"/>
+							<p>Electrónicos</p>
+						</div>
+							
+						<div class="categoriaContainer">
+							<img src="assets/images/categorias-icons/mujer.svg" width="40px"/>
+							<p>Moda de Mujer</p>
+						</div>
+							
+						<div class="categoriaContainer">
+							<img src="assets/images/categorias-icons/hombre.svg" width="40px"/>
+							<p>Moda de Hombre</p>
+						</div>
+							
+						<div class="categoriaContainer">
+							<img src="assets/images/categorias-icons/kids.svg" width="40px"/>
+							<p>Moda Kids</p>
+						</div>
+							
+						<div class="categoriaContainer">
+							<img src="assets/images/categorias-icons/libros.svg" width="40px"/>
+							<p>Libros</p>
+						</div>
+							
+						<div class="categoriaContainer">
+							<img src="assets/images/categorias-icons/otros.svg" width="40px"/>
+							<p>Otros</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="last-posts-container">
+				<h2>Últimas publicaciones</h2>
+				
+				<div id="last-posts">
+				</div>
+			</div>
+		</div>
+		
+		
+		<!----------------------------------	MI AREA SECTION	----------------------------------->
+		<div id="mi-area-section" class="whiteBackground">
+			<div class="sectionHeader">
+				<h1>Mi área</h1>
+			</div>
+			
+			<div id="mi-area-main-section">
+				<div id="left-side">
+					<div id="user-photo"></div>
+				</div>
+				
+				<div id="right-side">
+					<h3>Nombre de usuario</h3>
+					<button id="modify-user-button">Modificar mis datos</button>
+					<p id="logout-button">Cerrar sesión</p>
+				</div>
+			</div>
+			
+			<div id="user-posts">
+				<h2>Todas mis publicaciones</h2>
+				
+				<div id="user-posts-container"></div>
+			</div>
+			
+			<div id="add-new-post">
+				<svg class="bi bi-tag-fill" width="1.4rem" height="1.4rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				  <path fill-rule="evenodd" d="M2 1a1 1 0 00-1 1v4.586a1 1 0 00.293.707l7 7a1 1 0 001.414 0l4.586-4.586a1 1 0 000-1.414l-7-7A1 1 0 006.586 1H2zm4 3.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" clip-rule="evenodd"/>
+				</svg>
+				<p>Agregar</p>
+			</div>
+		</div>
+		
+		
+		<!----------------------------------	ME INTERESA DIV	----------------------------------->
+		<div id="me-interesa-div">
+			<div id="me-interesa-title-container">
+				<h2 id="me-interesa-button">X</h2><h1 id="me-interesa-title">Toda la información</h1>
+			</div>
+			
+			<div id="me-interesa-content"></div>
+		</div>
+		
+		<!----------------------------------	THE DIV	----------------------------------->
+		<div id="the-div" class="whiteBackground">
+			<div id="the-title-container">
+				<h2 id="the-button">X</h2><h1 id="the-title">Título principal</h1>
+			</div>
+			
+			<div id="the-content"></div>
+		</div>
+		
+		
+		<div id="navigation-menu">
+			<span id="inicio-button-menu">
+				<svg class="bi bi-house-door-fill" width="1.4rem" height="1.4rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				  <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 01.708 0l6 6a.5.5 0 01.146.354v7a.5.5 0 01-.5.5H9.5a.5.5 0 01-.5-.5v-4H7v4a.5.5 0 01-.5.5H2a.5.5 0 01-.5-.5v-7a.5.5 0 01.146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v4h3.5V7.707L8 2.207l-5.5 5.5z" clip-rule="evenodd"/>
+				  <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"/>
+				</svg>
+				<p>Inicio</p>
+			</span>
+			
+			<span id="busqueda-button-menu">
+				<svg class="bi bi-search" width="1.2rem" height="1.2rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				  <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"/>
+				  <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"/>
+				</svg>
+				<p>Busqueda</p>
+			</span>
+			
+			<span id="mi-area-button-menu">
+				<svg class="bi bi-person" width="1.4rem" height="1.4rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				  <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 00.014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 00.022.004zm9.974.056v-.002.002zM8 7a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0z" clip-rule="evenodd"/>
+				</svg>
+				<p>Mi área</p>
+			</span>
+		</div>
+	</div>
+	
+	<!-- 		FIREBASE CONFIG			-->
+	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+	<script defer src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+	<!-- Add Firebase products that you want to use -->
+	<script defer src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/7.2.3/firebase-storage.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+	
+
+	<script defer src="assets/js/scripts.js"></script>
+</body>
+</html>
